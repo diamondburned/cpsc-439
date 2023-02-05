@@ -36,7 +36,7 @@ $11 \times \lceil\log_2{n}\rceil \times n$ $\le$ $\lfloor 1000n \log(n)\rfloor$
 
 To prove that our encoding function $E$ is one-to-one we must show that $E(u) = E(v) \rightarrow u = v$.
 
-$\texttt{I have no idea how to do this part} 😭$
+$\texttt{I have no idea how to do this part}$
 
 $Q.E.D$
 
