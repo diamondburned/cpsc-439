@@ -18,9 +18,9 @@ Naively we could opt for an Adjacency Matrix encoding scheme which would result 
 
 Optimally, an Adjacency List encoding scheme should be used. In this scheme each vertex holds a list of its neighbors (vertices that it shares an edge with). Each vertex's list is comprised of the indices to the neighboring vertices.
 
-Since there are $n$ we will assign indices as $[n]$ , i.e: ${1, 2, 3, ..., n_{i-1}, n_i}$. With this relationship, any arbitrary index $n_i$ requires $\lceil{\log_2{n_i}}\rceil$ bits to represent. Each vertex may potentially have an out-degree of $10$ which results in a maximum usage of $10 \times \lceil{\log_2{n}}\rceil$ bits per vertex. With $n$ vertices we are using $10 \times \lceil{\log_2{n}}\rceil \times n$ bits total, it is clear to see that the following inequality holds `true` for all $n$: $\\10 \times \lceil{\log_2{n}} \rceil \times n \le \lfloor 1000 \times n \log{n}\rfloor$
+Since there are $n$ we will assign indices as $[n]$ , i.e: ${1, 2, 3, ..., n_{i-1}, n_i}$. With this relationship, any arbitrary index $n_i$ requires $\lceil{\log_2{n_i}}\rceil$ bits to represent. Each vertex may potentially have an out-degree of $10$ which results in a maximum usage of $10 \times \lceil{\log_2{n}}\rceil$ bits per vertex. With $n$ vertices we are using $10 \times \lceil{\log_2{n}}\rceil \times n$ bits total, it is clear to see that the following inequality holds `true` for all $n$: $10 \times \lceil{\log_2{n}} \rceil \times n \le \lfloor 1000 \times n \log{n}\rfloor$
 
-However, to ensure that our Adjacency List encoding function $E$ is one-to-one we must ensure that it is `prefix_free` i.e: $\\E \texttt{ is prefix-free if } E(o) \neq \varnothing \texttt{ for every o} \in O  \texttt{ and there does not exist a distinct pair of objects } o, o' \in O \texttt{ such that } E(o) \texttt{is a prefix of } E(o')$
+However, to ensure that our Adjacency List encoding function $E$ is one-to-one we must ensure that it is `prefix_free` i.e: $E \texttt{ is prefix-free if } E(o) \neq \varnothing \texttt{ for every o} \in O  \texttt{ and there does not exist a distinct pair of objects } o, o' \in O \texttt{ such that } E(o) \texttt{is a prefix of } E(o')$
 
 <!-- To show this, we need to expand our encoding language from ${\{0, 1\}}$ to ${\{00, 11, 01, 10\}} \texttt{ wherein } 00 \to 0, 11 \to 1, 01 \to |, 10 \to ||$ -->
 
