@@ -1,4 +1,7 @@
 import { html } from "https://deno.land/x/literal_html@1.1.0/mod.ts";
+import * as comrak from "https://deno.land/x/comrak@0.1.1/mod.ts";
+
+await comrak.init();
 
 async function main() {
 	let input = await Deno.readTextFile(Deno.args[0]);
@@ -26,40 +29,14 @@ async function main() {
 		/>`;
 	});
 
-	const output = await exec(["cmark", "--nobreaks", "--unsafe", "--smart"], input);
+	const output = comrak.markdownToHTML(input, {
+		parse: { smart: true },
+		render: { unsafe: true },
+	});
 	console.log(output);
 }
 
-async function exec(cmd: string[], stdin = ""): Promise<string> {
-	const proc = Deno.run({
-		cmd,
-		stdin: "piped",
-		stdout: "piped",
-		stderr: "inherit",
-	});
-
-	const stdinEncoder = new TextEncoder();
-	await proc.stdin.write(stdinEncoder.encode(stdin));
-	proc.stdin.close();
-
-	const stdoutDecoder = new TextDecoder();
-	const output = await proc.output();
-
-	const status = (await proc.status()).code;
-	if (status != 0) {
-		throw `${cmd[0]} failed with status ${status}`;
-	}
-
-	return stdoutDecoder.decode(output);
-}
-
 function latexImageURL(latex: string): string {
-	// latex = latex
-	// 	.replaceAll(/\\$/gm, `\\\\`);
-	// .replaceAll(/ ([{}])/g, ` \\$1`)
-	// .replaceAll(/^({)/g, `\\$1`)
-	// .replaceAll(/(})$/g, `\\$1`);
-	// console.debug(latex);
 	return "https://pi998nv7pc.execute-api.us-east-1.amazonaws.com/production/svg" +
 		`?tex=${encodeURIComponent(latex)}&scale=1`;
 }

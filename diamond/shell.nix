@@ -23,6 +23,5 @@ in pkgs.mkShell {
 		git
 		go
 		deno
-		cmark
 	];
 }
