@@ -15,17 +15,17 @@ func main() {
 		e_0 := encodeGraphToE_0(n, E)
 		fmt.Printf("  E_0: %s\n", e_0)
 		if e_0.Length() <= max {
-			fmt.Printf("    => PASS (max %d)\n", max)
+			fmt.Printf("    => PASS (%d ≤ %d)\n", e_0.Length(), max)
 		} else {
-			fmt.Printf("    => FAIL (max %d)\n", max)
+			fmt.Printf("    => FAIL (%d > %d)\n", e_0.Length(), max)
 		}
 
 		e := encodeGraphToE(n, E)
 		fmt.Printf("  E:   %s\n", e)
 		if e.Length() <= max {
-			fmt.Printf("    => PASS (max %d)\n", max)
+			fmt.Printf("    => PASS (%d ≤ %d)\n", e.Length(), max)
 		} else {
-			fmt.Printf("    => FAIL (max %d)\n", max)
+			fmt.Printf("    => FAIL (%d > %d)\n", e.Length(), max)
 		}
 
 		fmt.Println()
@@ -34,17 +34,20 @@ func main() {
 	test(1, [][2]int{})
 	test(2, [][2]int{{0, 1}})
 	test(3, [][2]int{{0, 1}, {1, 0}, {1, 2}})
+	test(10, generateEdges(10))
+	test(11, generateEdges(11))
+}
 
-	// generate list of edges for n = 10
-	var n10Edges [][2]int
-	for i := 0; i < 10; i++ {
-		for j := 0; j < 10; j++ {
+func generateEdges(n int) [][2]int {
+	var edges [][2]int
+	for i := 0; i < n; i++ {
+		for j := 0; j < n && j < 10; j++ {
 			if i != j {
-				n10Edges = append(n10Edges, [2]int{i, j})
+				edges = append(edges, [2]int{i, j})
 			}
 		}
 	}
-	test(10, n10Edges)
+	return edges
 }
 
 func maxLengthAllowed(n int) int {
