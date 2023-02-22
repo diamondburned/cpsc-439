@@ -26,12 +26,20 @@ async function main() {
 		return html`<img
 			src="${latexImageURL(math)}"
 			data-equation-content="${{ attr: math }}"
-		/>`;
+		/>`.replaceAll(/[\n\t]+/g, " ");
 	});
+
+	// console.log(input);
+	// return;
 
 	const output = comrak.markdownToHTML(input, {
 		parse: { smart: true },
 		render: { unsafe: true },
+		extension: {
+			strikethrough: true,
+			table: true,
+			autolink: true,
+		},
 	});
 	console.log(output);
 }
