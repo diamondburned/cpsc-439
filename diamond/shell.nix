@@ -23,5 +23,6 @@ in pkgs.mkShell {
 		git
 		go
 		deno
+		nodePackages.prettier
 	];
 }
