@@ -1,6 +1,6 @@
 ### Irregular Language
 
-Consider the language $\{w:  w \text{ is a palindrome}\}$ over the alphabet $\Sigma = \{a, b\}^*$
+Consider the language $\\{w:  w \text{ is a palindrome}\\}$ over the alphabet $\Sigma = \\{a, b\\}^*$
 
 Intuitively, determining palindromes requires an external memory buffer, of
 which we do **not** have in a DFA or NFA.
@@ -26,7 +26,7 @@ where the pumping length $p$ is $3$
 By the Pumping Lemma, we can write $p = xyz$ where $|y| > 0$, and for any $k >=
 0$ $xy^kz$ is also a palindrome in $w$. We can write $y = a^k$ for any $k > 0$
 since $y$ is non-empty and must consist entirely of symbols from our alphabet
-$\Sigma$ i.e: $\{a, b\}$. Following this, we know $x$ can only containt at most
+$\Sigma$ i.e: $\\{a, b\\}$. Following this, we know $x$ can only containt at most
 $n-k$ $a$'s due to $|xy| <= n$. Meanwhile, $z$ contains the rest of the
 remaining $a$'s and $b$'s. Post concatenation, with the formula $xy^kz$ shows
 us that the resulting string will have more $a$'s on the left side (of the $b$) than the
