@@ -37,7 +37,7 @@ itself is an irregular language.
 
 Extra visual example:
 
-```math
+```
 p = aaaabaaaa
 
 choose n = 4
@@ -58,5 +58,4 @@ resulting_string = aa + aaaa + baaaa
 resulting_string = aaaaaabaaaa
 
 this is not a palindrome.
-
 ```
