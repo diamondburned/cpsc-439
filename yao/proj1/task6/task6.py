@@ -1,6 +1,3 @@
-from tkinter import EXCEPTION
-
-
 kBLANK = " "
 kA = "A"
 kB = "B"
