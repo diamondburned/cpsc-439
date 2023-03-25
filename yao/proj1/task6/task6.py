@@ -7,7 +7,7 @@ state_map = dict[str, dict[str, list[str]]]  # for type anno
 
 class TuringMachine:
     def __init__(self):
-        self.tm = {
+        self.tm: state_map = {
             "START": {
                 kA: ["SAW_A", "R", kBLANK],
                 kB: ["SAW_B", "R", kBLANK],
@@ -41,7 +41,6 @@ class TuringMachine:
         }
 
     def solve(self, inp: str):
-        pass
         tape = [" "] + [x.upper() for x in inp] + [" "]
         i = 1
         state, move, sym = self.tm["START"][tape[i]]
