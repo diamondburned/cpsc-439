@@ -61,8 +61,7 @@ def main(
 
         if verbose:
             print(
-                f"Fuzzy Test {fuzzy_test_idx} = {fuzzy_test_input}",
-                test_passed,
+                f"Fuzzy Test {fuzzy_test_idx} = {fuzzy_test_input} passed: {test_passed} {'✅' if test_passed else '❌'}"
             )
 
     print(f"Passed {fuzzy_pass}/{num_fuzzy_tests}")
