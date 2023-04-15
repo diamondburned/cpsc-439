@@ -18,10 +18,17 @@ in pkgs.mkShell {
 	inherit PROJECT_ROOT PROJECT_SYSTEM;
 
 	buildInputs = with pkgs; [
+		git
+		# Python
 		python310
 		pyright
-		git
+		# Go
 		go
+		# Haskell
+		ghc
+		haskell-language-server
+		ormolu
+		# JS
 		deno
 		nodePackages.prettier
 	];
