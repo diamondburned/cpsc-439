@@ -21,6 +21,7 @@ parser.add_argument(
 parser.add_argument(
     "-v", "--verbose", default=False, action="store_true", help="Print each test."
 )
+
 parser.add_argument(
     "-s",
     "--stop-on-fail",
