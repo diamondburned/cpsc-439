@@ -3,7 +3,7 @@ import sys, subprocess
 input = sys.stdin.read()
 
 p = subprocess.Popen(
-    ["python3", "simple-sat/sat.py", "-a"],
+    ["python3", "simple-sat/src/sat.py", "-a"],
     stdout=subprocess.PIPE,
     stdin=subprocess.PIPE,
     stderr=subprocess.STDOUT,
